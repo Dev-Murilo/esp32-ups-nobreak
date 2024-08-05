@@ -69,9 +69,7 @@ O **esp32-ups-nobreak** é um projeto de nobreak (UPS - Uninterruptible Power Su
   - **0-1023**: Leitura ADC de 10 bits da tensão do carregador.
 
 ### Exemplo de Telemetria
-[Exemplo](https://youtu.be/NBOAWUM_bD8)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NBOAWUM_bD8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+[VEJA O VIDEO](https://youtu.be/NBOAWUM_bD8)
 
 ```plaintext
 (0,6,86,0,74)
