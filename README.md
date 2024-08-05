@@ -71,6 +71,8 @@ O **esp32-ups-nobreak** é um projeto de nobreak (UPS - Uninterruptible Power Su
 ### Exemplo de Telemetria
 [Exemplo](https://youtu.be/NBOAWUM_bD8)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NBOAWUM_bD8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ```plaintext
 (0,6,86,0,74)
 ```
