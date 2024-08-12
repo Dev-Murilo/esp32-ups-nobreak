@@ -37,22 +37,15 @@ const long interval2 = 10000;
 unsigned long currentMillis = millis();
 
 // softstart
-const int softStartDuration = 3000; // Soft start duration in milliseconds
-unsigned long softStartStartTime = 0; // Soft start start time
-bool softStartComplete = false; // Soft start complete flag
-
-const int pwmFrequency = 1000; // PWM frequency in Hz
-const int pwmResolution = 10; // PWM resolution in bits
-const int pwmMaxDutyCycle = 1023; // Maximum duty cycle value
+bool softstartComplete = false; // Flag de softstart completo
+const int pwmPin = bateria; // Pino PWM para controle do softstart
+const int softstartTime = 5000; // Tempo de duração do softstart em milissegundos
 
 void setup() {
-  Serial1.begin(115200);  // abre a porta serial a 115200 bps:
-  Serial.begin(115200);  // abre a porta serial a 115200 bps:
-  analogReadResolution(10); // resolução de 12 bits
+  Serial1.begin(115200);  
+  Serial.begin(115200); 
+  analogReadResolution(10); 
   
-  //pinMode(A0, INPUT);                // leitura CARREGADOR
-  //pinMode(A1, INPUT);                // leitura BATERIA interna
-  //pinMode(A2, INPUT);                // Leitura BATERIA 2
   pinMode(carregador, OUTPUT);       // saida mosfet carregador + led azul
   pinMode(bateria, OUTPUT);          // saida Mosfet bateria 1 + led verde
   pinMode(bateria_externa, OUTPUT);  // saida mosfet bateria 2 + led amarelo
@@ -61,9 +54,6 @@ void setup() {
   pinMode(rele_bat, OUTPUT);            // carregar bateria interna
   pinMode(rele_bat2, OUTPUT);            // carregar bateria externa
 
-  //digitalWrite(PD3, HIGH);
-  //digitalWrite(PD2, HIGH);
-
   //#### fazendo varredura inicial bateria interna
   
   Tensao_bateria = analogRead(2);
@@ -71,9 +61,13 @@ void setup() {
   //Serial.print(Tensao_bateria);
   //Serial.println("");
 
+  //if(Tensao_bateria<=530){
+  //  bateria_carregada=false;
+  //}else digitalWrite(bateria,HIGH)  
   if(Tensao_bateria<=530){
     bateria_carregada=false;
-  }else digitalWrite(bateria,HIGH);
+  }else softstart();
+
   //#### fazendo varredura inicial bateria externa
   Tensao_bateria_externa = analogRead(4);
   //Serial.println("tensão da bateria externa: ");
@@ -97,16 +91,13 @@ void setup() {
 
 // Soft start function
 void softstart(){
-  if (!softStartComplete) {
-    // Check if soft start duration has elapsed
-    if (millis() - softStartStartTime >= softStartDuration) {
-      softStartComplete = true; // Soft start complete
-    } else {
-      // Calculate duty cycle based on soft start progress
-      int dutyCycle = map(millis() - softStartStartTime, 0, softStartDuration, 0, pwmMaxDutyCycle);
-      ledcWrite(0, dutyCycle); // Set PWM duty cycle
+  while (pwmValue < 1023) {
+        analogWrite(pwmPin, pwmValue);
+        pwmValue += increment;
+        delay(softstartTime / (1023 / increment));
     }
-    loop();
+    softstartComplete = true;
+    return;
 }
 
 void loop() {
@@ -198,40 +189,3 @@ void loop() {
 
   currentMillis = millis();
 }
-
-
-/* to implement soft start
-// Soft start variables
-
-
-// PWM variables
-
-
-void setup() {
-  // Other setup code...
-
-  pinMode(pwmPin, OUTPUT); // Set PWM pin as output
-
-  // Initialize PWM
-  ledcSetup(0, pwmFrequency, pwmResolution);
-  ledcAttachPin(pwmPin, 0);
-}
-
-void loop() {
-  // Other loop code...
-
-  // Check if soft start is complete
-  if (!softStartComplete) {
-    // Check if soft start duration has elapsed
-    if (millis() - softStartStartTime >= softStartDuration) {
-      softStartComplete = true; // Soft start complete
-    } else {
-      // Calculate duty cycle based on soft start progress
-      int dutyCycle = map(millis() - softStartStartTime, 0, softStartDuration, 0, pwmMaxDutyCycle);
-      ledcWrite(0, dutyCycle); // Set PWM duty cycle
-    }
-  } else {
-    // Normal operation code...
-  }
-}
-*/
