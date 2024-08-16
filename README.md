@@ -2,7 +2,7 @@
 
 ## FIRST VIEW
 Click here to go to the first viwe of main features, pins of 
-[esp32-ups-nobreak](Doc\README.md)
+[esp32-ups-nobreak](Doc/README.md)
 
 ##
 
