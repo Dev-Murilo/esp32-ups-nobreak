@@ -7,27 +7,27 @@ Here is the points that you can solder the cables.
 By default in the code, was made to use adc precision of 10 bits, because of the usage of another uC, the middle positions are configured to act as dc charger. 
 #### Batery used to develop was Vmount 14,8V with the constant load not exceeding 3Amp
 
-![Input_PCB](IMG\INPUT_DC.png)
+![Input_PCB](IMG/INPUT_DC.png)
 
 INPUT CARREGADOR:
 
-![Input_Carregador](IMG\Input_Carregador.png)
+![Input_Carregador](IMG/Input_Carregador.png)
 
 INPUT FONTE1 
 
-![Input_Fonte1](IMG\Input_Fonte1.png)
+![Input_Fonte1](IMG/Input_Fonte1.png)
 
 INPUT FONTE2
 
-![Input_Fonte1](IMG\Input_Fonte2.png)
+![Input_Fonte1](IMG/Input_Fonte2.png)
 
 
 ## Circuit for source parallelism, Example of battery recharging use case.
 You can use this relays to short circuit terminals form middle input and outer inputs, and you can monitoring dc charging and configure how it will work. Maximum of 3Amps
 
-![SMD_RELAYs](IMG\SMD_RELAY_PCB.png)
+![SMD_RELAYs](IMG/SMD_RELAY_PCB.png)
 
-![SMD_RELAYs](IMG\SMD_RELAYs.png)
+![SMD_RELAYs](IMG/SMD_RELAYs.png)
 
 ## Circuit for ADC input and Voltage divider
 Voltage divider circuit and reading: -- 25V to 3.3V
