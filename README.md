@@ -2,7 +2,7 @@
 
 ## FIRST VIEW
 Click here to go to the first viwe of main features, pins of 
-[esp32-ups-nobreak](Doc/README.md)
+[esp32-ups-nobreak](https://github.com/Dev-Murilo/esp32-ups-nobreak/tree/main/Doc)
 
 ##
 
