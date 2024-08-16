@@ -2,9 +2,10 @@
 
 bool softstartComplete = false; // Flag de softstart completo
 const int pwmPin = 4; // Pino PWM para controle do softstart
-const int softstartTime = 5000; // Tempo de duração do softstart em milissegundos
+const int softstartTime = 10000; // Tempo de duração do softstart em milissegundos
 
 void softstart() {
+    Serial.println("Softstart");
     int pwmValue = 0;
     int increment = 1;
 
@@ -36,13 +37,17 @@ void softstart() {
 
 void setup() {
     pinMode(pwmPin, OUTPUT);
+    Serial.begin(115200);
+    Serial.println("saindo Setup");
 }
 
 void loop() {
+    Serial.println("entrando Loop");
     // Chama a função de softstart
     if(softstartComplete!=true) {
-        softstart();
+        //softstart();
     }
-    analogWrite(pwmPin, 2);
-    // Outras ações do programa
+    analogWrite(pwmPin,1);
+    delay(1000);
+     
 }

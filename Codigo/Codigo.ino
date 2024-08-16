@@ -14,11 +14,11 @@ int Tensao_bateria = 0;          // variavel tensão bateria interna
 int Tensao_bateria_externa = 0;  // variavel tensão bateria externa
 
 //#### portas de saida destinadas a controle dos mosfets
-int carregador = 5;       // porta de controle de mosfet e led do carregador
-int bateria = 6;          // porta de controle de mosfet e led do carregador
-int bateria_externa = 7;  // porta de controle de mosfet e led do carregador
-int rele_bat = 8;              // porta de controle de mosfet e led do carregador
-int rele_bat2 = 3;              // porta de controle de mosfet e led do carregador
+int carregador = 5;       // porta de controle de mosfet carrergador
+int bateria = 6;          // porta de controle de mosfet bateria
+int bateria_externa = 7;  // porta de controle de mosfet bateria externa
+int rele_bat = 8;              // porta de controle de rele
+int rele_bat2 = 3;              // porta de controle de rele
 
 //### variaveis para salvar estados do sistema
 bool bateria_carregada = true;
@@ -26,13 +26,14 @@ bool bateria_externa_carregada = false;
 bool carregador_conectado = false;
 bool bateria_externa_conectada = false;
 bool bateria_conectada = true;
+
 // 0% = 530
 // 100% = 675
 
 //## variaveis para contador comunicação serial
-unsigned long previousMillis = 0; // tempo anterior no qual o led foi chaveado
-unsigned long previousMillis2= 0; // tempo anterior no qual o led foi chaveado
-const long interval = 1000;       // intervalo para comunicar (milliseconds)
+unsigned long previousMillis = 0; 
+unsigned long previousMillis2= 0; 
+const long interval = 1000;       
 const long interval2 = 10000;
 unsigned long currentMillis = millis();
 
