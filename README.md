@@ -1,7 +1,7 @@
 # esp32-ups-nobreak
 
 ## FIRST VIEW
-Click here to go to the first viwe of main features, pins of 
+Click here to go to the first view of main features, pins of 
 [esp32-ups-nobreak](https://github.com/Dev-Murilo/esp32-ups-nobreak/tree/main/Doc)
 
 ##
