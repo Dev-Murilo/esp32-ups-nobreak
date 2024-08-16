@@ -37,7 +37,9 @@ Voltage divider circuit and reading: -- 25V to 3.3V
 ## Circuito regulador stepdown 5V
 Pins to set with suply will be used to act to maintain the uC. 
 
-![Stepdown](IMG/5vinput.png)
+![Stepdown-5v](IMG/5vinput.png)
+
+
 ![Stepdown](IMG/stepdown.png)
 
 ## ESD protections, Capacitor bank, Power buffer, Output bus
